@@ -314,11 +314,11 @@
             <form id="contactform" class="form" action="https://formspree.io/a@amdouglas.com" method="POST" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8" autocomplete="off">
               <fieldset class="grid">
                 <div class="cell cell-sm-12">
-                  <input type="text" id="fname" name="fname" class="form-input" placeholder="e.g. Francis" pattern=".{1,128}" required="required" />
+                  <input type="text" id="fname" name="fname" class="form-input" placeholder="e.g. Frank Kaplan" pattern=".{1,128}" required="required" />
                   <label for="fname" class="form-label">Your full name</label>
                 </div>
                 <div class="cell cell-sm-6">
-                  <input type="email" id="email" name="email" class="form-input" placeholder="e.g. f.turner@chestertoninc.com" pattern=".{5,}" required="required" />
+                  <input type="email" id="email" name="email" class="form-input" placeholder="e.g. f.kaplan@chestertoninc.com" pattern=".{5,}" required="required" />
                   <label for="email" class="form-label">Your email address</label>
                 </div>
                 <div class="cell cell-sm-6">
@@ -333,26 +333,18 @@
                   <label for="cname" class="form-label">Company name</label>
                 </div>
                 <div class="cell cell-sm-6">
-                  <input type="text" id="address1" name="address1" class="form-input" placeholder="e.g. 11 Cardigan Street" pattern=".{1,256}" />
-                  <label for="address1" class="form-label">Address line 1</label>
-                </div>
-                <div class="cell cell-sm-6">
-                  <input type="text" id="towncity" name="towncity" class="form-input" placeholder="e.g. Manchester" pattern=".{1,128}" />
-                  <label for="towncity" class="form-label">Town/city</label>
-                </div>
-                <div class="cell cell-sm-6">
-                  <input type="text" id="zip" name="zip" class="form-input" placeholder="e.g. 3256" pattern=".{3,16}" />
-                  <label for="zip" class="form-label">ZIP</label>
+                  <input type="text" id="czip" name="czip" class="form-input" placeholder="e.g. 3256" pattern=".{3,16}" />
+                  <label for="czip" class="form-label">Company ZIP</label>
                 </div>
               </fieldset>
               <hr />
               <fieldset class="grid">
                 <div class="cell cell-sm-12">
-                  <textarea rows="5" id="message" name="message" class="form-input" placeholder="Please tell us more about your practice and the help you might need" minlength="3" required="required"></textarea>
+                  <textarea rows="5" id="message" name="message" class="form-input" placeholder="Feel free to tell us a little about your firm and what picqued your interest today" minlength="3" required="required"></textarea>
                   <label for="message" class="form-label">How can we help?</label>
                 </div>
                 <div class="cell cell-sm-12">
-                  <input type="hidden" name="_subject" value="AMLSEC sign up: " aria-hidden="true" hidden="hidden" />
+                  <input type="hidden" name="_subject" value="AMLSEC sign up--" aria-hidden="true" hidden="hidden" />
                   <input type="text" name="_gotcha" class="gotcha" aria-hidden="true" hidden="hidden" />
                   <button id="send_form" type="submit" class="form-button submit">Confirm details &amp; submit</button>
                 </div>
