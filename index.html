@@ -79,31 +79,25 @@
     <style>
       .glitchtxt {position: relative}
       .glitchtxt:before,.glitchtxt:after{content:'';display:none}
-      .glitchtxt:hover:before {
+      .glitchtxt:hover:before,.glitchtxt:hover:after{
         content: attr(data-glitchtxt);
         display: inline-block;
         position: absolute;
-        left: -2px;
         top: 0;
         color: inherit;
         background: inherit;
         font-size: inherit;
         padding: inherit;
+      }
+      .glitchtxt:hover:before {
+        left: -2px;
         text-shadow: 1px 0 mediumblue;
         overflow: hidden;
         clip: rect(0, 900px, 0, 0);
         animation: noise-anim-2 .5s infinite linear alternate-reverse;
       }
       .glitchtxt:hover:after {
-        content: attr(data-glitchtxt);
-        display: inline-block;
-        position: absolute;
         left: 2px;
-        top: 0;
-        color: inherit;
-        background: inherit;
-        font-size: inherit;
-        padding: inherit;
         text-shadow: -1px 0 crimson;
         overflow: hidden;
         clip: rect(0, 900px, 0, 0);
