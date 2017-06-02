@@ -6,7 +6,7 @@
   var body_el    = doc.body || doc.getElementsByTagName('body')[0];
   var header     = doc.getElementsByTagName('header')[0];
   var hgroup     = doc.querySelector('.hgroup');
-  var overlay    = doc.querySelector('.header-overlay');
+  //var overlay    = doc.querySelector('.header-overlay');
   var main       = doc.getElementById('main');
   var menu       = doc.getElementsByTagName('aside')[0];
   var w          = (win.innerWidth || root_el.clientWidth || body_el.clientWidth);
@@ -228,7 +228,7 @@
         setActiveNavLink(sections[t]);
       }
     }
-    overlay.style[_transform] = 'translateY(' + oD * 10 + 'vh)';
+    //overlay.style[_transform] = 'translateY(' + oD * 10 + 'vh)';
     if (oD <= 0) {
       hgroup.style.opacity = 0;
       return;
@@ -277,17 +277,17 @@
   if (!('HTMLCanvasElement' in win)) { return; }
   var FPS = 24;
   var frm = 0;
-  var _video = document.createElement('video');
+  var _video = doc.createElement('video');
   _video.crossOrigin = 'anonymous';
   _video.autoplay = 'autoplay';
   _video.loop = 'loop';
   _video.muted = 'muted';
   _video.src = 'https://www.amlsec.us/vid/amlsecintro.mp4';
   _video.type = 'video/mp4';
-  var _canvas = document.createElement('canvas');
+  var _canvas = doc.createElement('canvas');
   _canvas.width = 640;
   _canvas.height = 360;
-  document.body.insertBefore(_canvas,document.body.firstChild);
+  doc.body.insertBefore(_canvas,doc.body.firstChild);
   _video.addEventListener('loadeddata', sync, {passive:true,capture:false,once:false});
   function glitchVid (canvas) {
     this.canvas = canvas;
@@ -311,9 +311,9 @@
     }
     for (var h = startHeight; h < endHeight; h++) {
       var image;
-      if (Math.random() < 0.1) { h++; }
+      if (win.Math.random() < 0.1) { h++; }
       image = this.ctx.getImageData(0, h, this.width, 1);
-      this.ctx.putImageData(image, Math.random() * waveStrength - (waveStrength / 2), h);
+      this.ctx.putImageData(image, win.Math.random() * waveStrength - (waveStrength / 2), h);
     }
   };
   glitchVid.prototype.glitchFillRandom = function (fillCnt, cuttingMaxHeight) {
@@ -322,12 +322,12 @@
     var i, image, rndX, rndY, rndW, rndH;
     i = image = rndX = rndY = rndW = rndH = 0;
     for (; i < fillCnt; i++) {
-      rndX = (cw * Math.random() << 0) + 1;
-      rndY = (ch * Math.random() << 0) + 1;
-      rndW = (cw * Math.random() << 0) + 1;
-      rndH = (cuttingMaxHeight * Math.random() << 0) + 1;
+      rndX = (cw * win.Math.random() << 0) + 1;
+      rndY = (ch * win.Math.random() << 0) + 1;
+      rndW = (cw * win.Math.random() << 0) + 1;
+      rndH = (cuttingMaxHeight * win.Math.random() << 0) + 1;
       image = this.ctx.getImageData(rndX, rndY, rndW, rndH);
-      this.ctx.putImageData(image, (rndX * Math.random()) % cw, rndY);
+      this.ctx.putImageData(image, (rndX * win.Math.random()) % cw, rndY);
     }
   };
   glitchVid.prototype.process = function () {};
@@ -338,7 +338,7 @@
     // _glitchVid.glitchWave((frm * 3) % glitch.height, 10);
     if (frm % 100 < 10) { _glitchVid.glitchFillRandom(5, 20); }
     if (80 < frm % 100) { _glitchVid.glitchSlip(10, 200, 300); }
-    if (95 < frm % 100) { _glitchVid.glitchSlip(10, 100 * Math.random(), 400 * Math.random()); }
+    if (95 < frm % 100) { _glitchVid.glitchSlip(10, 100 * win.Math.random(), 400 * win.Math.random()); }
     sync();
   }
   function sync () {
