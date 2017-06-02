@@ -564,6 +564,7 @@
         function handleLoad () {
           root_el.setAttribute('data-fonts-loaded', 'true');
           win.clearTimeout(win.connection.timer);
+          [].slice.call(doc.querySelectorAll('img[data-src]')).forEach(function(img){img.src=img.getAttribute('data-src')});
           if (!win.connection.slow) {
             root_el.setAttribute('data-slow-connection', 'false');
             doc.head.insertAdjacentHTML('beforeEnd', '<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/apple-touch-icon-120x120.png" /><link rel="apple-touch-icon-precomposed" sizes="76x76" href="/apple-touch-icon-76x76.png" /><link rel="apple-touch-icon-precomposed" sizes="60x60" href="/apple-touch-icon-60x60.png" /><link rel="icon" type="image/x-icon" href="/favicon.ico" />');
@@ -580,8 +581,11 @@
           }
           if ('stabs' in win){
             win.stabs.init();
+          }          
+          if (!!win.location.hash && !!(doc.getElementById(win.location.hash.replace('#','')))) {
+            smoothScroll(doc.getElementById(win.location.hash.replace('#','')));
           }
-          [].slice.call(doc.querySelectorAll('img[data-src]')).forEach(function(img){img.src=img.getAttribute('data-src')});
+          
           /*
           if ('serviceWorker' in navigator){
             navigator.serviceWorker.register('/sw.js')
@@ -593,6 +597,7 @@
             });
           }
           */
+          
           ga('create', 'UA-90341485-1', 'auto');
           ga('send', 'pageview');
         }
