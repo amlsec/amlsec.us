@@ -313,51 +313,39 @@
           <div class="cell">
             <form id="contactform" class="form" action="https://formspree.io/a@amdouglas.com" method="POST" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8" autocomplete="off">
               <fieldset class="grid">
-                <div class="cell cell-sm-6">
+                <div class="cell cell-sm-12">
                   <input type="text" id="gname" name="gname" class="form-input" placeholder="e.g. Francis" pattern=".{1,128}" required="required" />
-                  <label for="name" class="form-label">Your given name</label>
+                  <label for="name" class="form-label">Your full name</label>
                 </div>
                 <div class="cell cell-sm-6">
-                  <input type="text" id="sname" name="sname" class="form-input" placeholder="e.g. Turner" pattern=".{1,128}" required="required" />
-                  <label for="name" class="form-label">Your family name</label>
-                </div>
-                <div class="cell cell-sm-6">
-                  <input type="text" id="title" name="title" class="form-input" placeholder="e.g. Dr, Mrs" pattern=".{1,24}" required="required" />
-                  <label for="title" class="form-label">Your title</label>
-                </div>
-                <div class="cell cell-sm-6">
-                  <input type="text" id="role" name="role" class="form-input" placeholder="e.g. owner, optometrist" pattern=".{1,64}" required="required" />
-                  <label for="role" class="form-label">Your role at your practice</label>
+                  <input type="text" id="role" name="role" class="form-input" placeholder="e.g. founder, IT manager..." pattern=".{1,64}" />
+                  <label for="role" class="form-label">Your position in your firm</label>
                 </div>
               </fieldset>
               <hr />
               <fieldset class="grid">
                 <div class="cell cell-sm-6">
-                  <input type="text" id="pname" name="pname" class="form-input" placeholder="e.g. Turner Optometry Ltd" pattern=".{1,128}" required="required" />
-                  <label for="pname" class="form-label">Practice name</label>
+                  <input type="text" id="pname" name="pname" class="form-input" placeholder="e.g. Chesterton Inc" pattern=".{1,128}" />
+                  <label for="pname" class="form-label">Company name</label>
                 </div>
                 <div class="cell cell-sm-6">
-                  <input type="text" id="paddress1" name="paddress1" class="form-input" placeholder="e.g. 11 Cardigan Street" pattern=".{1,256}" required="required" />
+                  <input type="text" id="paddress1" name="paddress1" class="form-input" placeholder="e.g. 11 Cardigan Street" pattern=".{1,256}" />
                   <label for="paddress1" class="form-label">Address line 1</label>
                 </div>
                 <div class="cell cell-sm-6">
-                  <input type="text" id="ptowncity" name="ptowncity" class="form-input" placeholder="e.g. Manchester" pattern=".{1,128}" required="required" />
+                  <input type="text" id="ptowncity" name="ptowncity" class="form-input" placeholder="e.g. Manchester" pattern=".{1,128}" />
                   <label for="ptowncity" class="form-label">Town/city</label>
                 </div>
                 <div class="cell cell-sm-6">
-                  <input type="text" id="ppostcode" name="ppostcode" class="form-input" placeholder="e.g. SW13 4KG" pattern=".{3,16}" required="required" />
+                  <input type="text" id="ppostcode" name="ppostcode" class="form-input" placeholder="e.g. SW13 4KG" pattern=".{3,16}" />
                   <label for="ppostcode" class="form-label">Postcode</label>
                 </div>
               </fieldset>
               <hr />
               <fieldset class="grid">
                 <div class="cell cell-sm-6">
-                  <input type="email" id="email" name="email" class="form-input" placeholder="e.g. f.turner@turneroptometry.co.uk" pattern=".{5,}" required="required" />
+                  <input type="email" id="email" name="email" class="form-input" placeholder="e.g. f.turner@chestertoninc.com" pattern=".{5,}" required="required" />
                   <label for="email" class="form-label">Your email address</label>
-                </div>
-                <div class="cell cell-sm-6">
-                  <input type="text" id="phone" name="phone" class="form-input" placeholder="e.g. 07585544481" pattern=".[0-9]{1,24}" required="required" />
-                  <label for="phone" class="form-label">Your telephone number</label>
                 </div>
                 <div class="cell cell-sm-12">
                   <textarea rows="5" id="message" name="message" class="form-input" placeholder="Please tell us more about your practice and the help you might need" minlength="3" required="required"></textarea>
