@@ -292,30 +292,36 @@
   var FPS = 24;
   var frm = 0;
   var _video = doc.createElement('video');
+  var _canvas = doc.createElement('canvas');
+  
   _video.crossOrigin = 'anonymous';
   _video.autoplay = 'autoplay';
   _video.loop = 'loop';
   _video.muted = 'muted';
   _video.src = 'https://www.amlsec.us/vid/amlsecintro.mp4';
   _video.type = 'video/mp4';
-  var _canvas = doc.createElement('canvas');
+
   _canvas.width = 640;
   _canvas.height = 360;
   doc.body.insertBefore(_canvas,doc.body.firstChild);
   _video.addEventListener('loadeddata', sync, {passive:true,capture:false,once:false});
-  function glitchVid (canvas) {
+
+function glitchVid (canvas) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
     this.width = canvas.width;
     this.height = canvas.height;
   }
+  
   glitchVid.prototype.drawImage = function(img, x, y) {
     this.canvas.getContext("2d").drawImage(img, x, y);
   };
+  
   glitchVid.prototype.glitchWave = function(renderLineHeight, cuttingHeight){
     var image = this.ctx.getImageData(0, renderLineHeight, this.width, cuttingHeight);
     this.ctx.putImageData(image, 0, renderLineHeight - 10);
   };
+  
   glitchVid.prototype.glitchSlip = function(waveStrength, startHeight, endHeight){
     var temp;
     if (endHeight < startHeight) {
@@ -330,6 +336,7 @@
       this.ctx.putImageData(image, win.Math.random() * waveStrength - (waveStrength / 2), h);
     }
   };
+  
   glitchVid.prototype.glitchFillRandom = function (fillCnt, cuttingMaxHeight) {
     var cw = this.width;
     var ch = this.height;
@@ -344,7 +351,9 @@
       this.ctx.putImageData(image, (rndX * win.Math.random()) % cw, rndY);
     }
   };
+  
   glitchVid.prototype.process = function () {};
+  
   function glitch () {
     var _glitchVid = new glitchVid(_canvas);
     frm++;
@@ -355,7 +364,9 @@
     if (95 < frm % 100) { _glitchVid.glitchSlip(10, 100 * win.Math.random(), 400 * win.Math.random()); }
     sync();
   }
+  
   function sync () {
-    win.setTimeout(glitch, 1000/FPS);
+    return win.requestAnimatioNFrame(glitch);
   }
+  
 })(window, window.document);
