@@ -20,7 +20,9 @@
                   'oTransform' in root_el.style ? 'oTransform' : 'transform';
   var _supports_video = 'HTMLVideoElement' in win;
   var _spinner;
+  
   init();
+  
   function init () {
     win.requestAnimationFrame(findActiveNavLink);
     win.addEventListener('scroll', eventDispatch, { passive: true,  capture: false, once: false });
@@ -29,6 +31,7 @@
     win.addEventListener('click',  eventDispatch, { passive: false, capture: false, once: false });
     win.addEventListener('submit', eventDispatch, { passive: false, capture: false, once: false });
   }
+  
   function getVideo () {
     var _src_urls = [];
     if (!win.connection.slow) {
@@ -49,6 +52,7 @@
     }
     return '<iframe src="https://youtube.com/embed/2lPOFcBti5Y" sandbox="allow-scripts allow-same-origin" frameborder="no" scrolling="no" allowfullscreen="allowFullscreen" allowtransparency="true"></iframe>';
   }
+  
   function eventDispatch (e) {
     var evt = e.target || null;
     var typ = e.type || null;
@@ -100,6 +104,7 @@
         return handleLoad();
     }
   }
+  
   function sendContactForm(e, evt) {
     var _xhr = new win.XMLHttpRequest();
     if (!('withCredentials' in _xhr)) {
@@ -145,6 +150,7 @@
     _xhr.send(_data);
     return false;
   }
+  
   function triggerSpinner () {
     _spinner = win.setTimeout(function () {
       if (_btn_send.textContent.length < 9) {
@@ -155,6 +161,7 @@
       return triggerSpinner();
     }, 300);
   }
+  
   function handleLoad () {
     root_el.setAttribute('data-fonts-loaded', 'true');
     win.clearTimeout(win.connection.timer);
@@ -195,6 +202,7 @@
     ga('create', 'UA-90341485-1', 'auto');
     ga('send', 'pageview');
   }
+  
   function rebounce (f) {
     var scheduled, context, args, i;
     return function () {
@@ -206,6 +214,7 @@
       });
     }
   }
+  
   function setActiveNavLink (section) {
     var lnks = doc.getElementById('nav').getElementsByTagName('a');
     var m = 0;
@@ -217,6 +226,7 @@
       }
     }
   }
+  
   function findActiveNavLink () {
     var oY = (win.scrollY || win.pageYOffset);
     var oD = ((h - oY) / h);
@@ -238,6 +248,7 @@
       hgroup.style[_transform] = 'translateY(' + (-100 + (oD * 50)) + '%)';
     }
   }
+  
   function getPos (_t,_st,_f,_sf) {
     var d;
     if (_sf > _t) {
@@ -246,9 +257,11 @@
     d = (_sf / _t);
     return _st + (_f - _st) * (d < 0.5 ? 4*d*d*d : (d-1)*(2*d-2)*(2*d-2)+1);
   }
+  
   function getTime () {
     return ('performance' in win) ? win.performance.now() : new Date().getTime();
   }
+  
   function smoothScroll (el) {
     var _t = 400;
     var _st = win.scrollY || win.pageYOffset;
@@ -272,6 +285,7 @@
     return step();
   }
 })(window, window.document);
+
 ;(function (win, doc) {
   'use strict';
   if (!('HTMLCanvasElement' in win)) { return; }
