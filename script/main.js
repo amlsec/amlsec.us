@@ -366,7 +366,7 @@ function glitchVid (canvas) {
   }
   
   function sync () {
-    return win.requestAnimatioNFrame(glitch);
+    return win.requestAnimationFrame(glitch);
   }
   
 })(window, window.document);
