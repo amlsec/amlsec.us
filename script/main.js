@@ -289,8 +289,8 @@
 ;(function (win, doc) {
   'use strict';
   if (!('HTMLCanvasElement' in win)) { return; }
-  var FPS = 24;
-  var frm = 0;
+  var _fps = 24;
+  var _frm = 0;
   var _video = doc.createElement('video');
   var _canvas = doc.createElement('canvas');
   
@@ -356,17 +356,17 @@ function glitchVid (canvas) {
   
   function glitch () {
     var _glitchVid = new glitchVid(_canvas);
-    frm++;
+    _frm++;
     _glitchVid.drawImage(_video, 0, 0);
     // _glitchVid.glitchWave((frm * 3) % glitch.height, 10);
-    if (frm % 100 < 10) { _glitchVid.glitchFillRandom(5, 20); }
-    if (80 < frm % 100) { _glitchVid.glitchSlip(10, 200, 300); }
-    if (95 < frm % 100) { _glitchVid.glitchSlip(10, 100 * win.Math.random(), 400 * win.Math.random()); }
+    if (_frm % 100 < 10) { _glitchVid.glitchFillRandom(5, 20); }
+    if (80 < _frm % 100) { _glitchVid.glitchSlip(10, 200, 300); }
+    if (95 < _frm % 100) { _glitchVid.glitchSlip(10, 100 * win.Math.random(), 400 * win.Math.random()); }
     sync();
   }
   
   function sync () {
-    return win.requestAnimationFrame(glitch);
+    return win.setTimeout(glitch, 1000/_fps);
   }
   
 })(window, window.document);
